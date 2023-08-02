@@ -1,9 +1,9 @@
 {
-    "Identifier": "",
-    "Slug": "",
-    "Status": "",
-    "Title": "",
-    "Description": "",
+    "Identifier": "eos7yti",
+    "Slug": "osm-series4",
+    "Status": "In progress",
+    "Title": "Antimalarial activity from OSM",
+    "Description": "This model predicts the antimalarial potential of small molecules in vitro. We have collected the data available from the Open Source Malaria Series 4 molecules and used two cut-offs to define activity, 1 uM and 2.5 uM. The training has been done with the LazyQSAR package (Morgan Binary Classifier) and shows an AUROC >0.8 in a 5-fold cross-validation on 20% of the data held out as test. These models have been used to generate new series 4 candidates by Ersilia.",
     "Mode": "",
     "Task": [],
     "Input": [],
@@ -12,8 +12,12 @@
     "Output Type": [],
     "Output Shape": "",
     "Interpretation": "",
-    "Tag": [],
-    "Publication": "",
-    "Source Code": "",
-    "License": ""
+    "Tag": [
+        "Malaria",
+        "P.falciparum",
+        "IC50"
+    ],
+    "Publication": "https://pubs.acs.org/doi/10.1021/acscentsci.6b00086",
+    "Source Code": "https://github.com/ersilia-os/lazy-qsar",
+    "License": "GPL-3.0"
 }
