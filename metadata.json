@@ -9,7 +9,9 @@
     "Input": ["Compound"],
     "Input Shape": "Single",
     "Output": ["Probability"],
-    "Output Type": ["Float"],
+    "Output Type": [
+        "Float"
+    ],
     "Output Shape": "List",
     "Interpretation": "Probability of killing P.falciparum in vitro (1uM and 2.5uM)",
     "Tag": [
