@@ -26,7 +26,7 @@ This model predicts the antimalarial potential of small molecules in vitro. We h
 ## Ersilia model URLs
 * [GitHub](https://github.com/ersilia-os/eos7yti)
 * [AWS S3](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7yti.zip)
-* [DockerHub](https://hub.docker.com/r/ersiliaos/eos7yti) (AMD64, ARM64)
+* [DockerHub](https://hub.docker.com/r/ersiliaos/eos7yti) (AMD64)
 
 ## Citation
 

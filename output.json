@@ -1,0 +1,15 @@
+[
+    {
+        "input": {
+            "key": "IJDNQMDRQITEOD-UHFFFAOYSA-N",
+            "input": "CCCC",
+            "text": "CCCC"
+        },
+        "output": {
+            "outcome": [
+                1.303175188316559e-08,
+                0.00015972383159297963
+            ]
+        }
+    }
+]
