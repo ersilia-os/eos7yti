@@ -1,0 +1,3 @@
+name,type,direction,description
+IC50_1uM,float,high,Probability of inhibiting Pfalciparum measured as IC50 with a cut-off of 1uM
+IC50_2.5uM,float,high,Probability of inhibiting Pfalciparum measured as IC50 with a cut-off of 2.5uM
