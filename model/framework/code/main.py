@@ -3,7 +3,7 @@ import os
 import csv
 import sys
 from rdkit import Chem
-import joblib
+import lazyqsar as lq
 
 # parse arguments
 input_file = sys.argv[1]
@@ -16,8 +16,10 @@ MODELPATH = os.path.join(root, "..", "..", "checkpoints")
 
 # my model
 def my_model(smiles_list):
-    mdl1 = joblib.load(os.path.join(MODELPATH, "osm_all_bin1_morgan.joblib"))
-    mdl2 = joblib.load(os.path.join(MODELPATH, "osm_all_bin25_morgan.joblib"))
+
+    
+    mdl1 = lq.LazyBinaryQSAR.load_model(os.path.join(MODELPATH, "osm_all_bin1"))
+    mdl2 = lq.LazyBinaryQSAR.load_model(os.path.join(MODELPATH, "osm_all_bin25"))
 
     y_pred1 = mdl1.predict_proba(smiles_list)[:,1]
     y_pred2 = mdl2.predict_proba(smiles_list)[:,1]
