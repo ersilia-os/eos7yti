@@ -1,8 +1,9 @@
 # Antimalarial activity from OSM
 
-This model predicts the antimalarial potential of small molecules in vitro. We have collected the data available from the Open Source Malaria Series 4 molecules and used two cut-offs to define activity, 1 uM and 2.5 uM. The training has been done with the LazyQSAR package (Morgan Binary Classifier) and shows an AUROC >0.8 in a 5-fold cross-validation on 20% of the data held out as test. These models have been used to generate new series 4 candidates by Ersilia.
+This model predicts the antimalarial potential of small molecules in vitro. We have collected the data available from the Open Source Malaria Series 4 molecules and used two cut-offs to define activity, 1 uM and 2.5 uM. The training has been done with the LazyQSAR package (CheMeleon embeddings) and shows an AUROC >0.8 in a 3-fold cross-validation on 25% of the data held out as test. These models have been used to generate new series 4 candidates by Ersilia.
 
 This model was incorporated on 2023-08-02.
+
 
 ## Information
 ### Identifiers
