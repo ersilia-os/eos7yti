@@ -2,8 +2,7 @@
 
 This model predicts the antimalarial potential of small molecules in vitro. We have collected the data available from the Open Source Malaria Series 4 molecules and used two cut-offs to define activity, 1 uM and 2.5 uM. The training has been done with the LazyQSAR package (CheMeleon embeddings) and shows an AUROC >0.8 in a 3-fold cross-validation on 25% of the data held out as test. These models have been used to generate new series 4 candidates by Ersilia.
 
-This model was incorporated on 2023-08-02.
-
+This model was incorporated on 2023-08-02.Last packaged on 2025-07-30.
 
 ## Information
 ### Identifiers
@@ -37,18 +36,18 @@ Below are the **Output Columns** of the model:
 - **Source:** `Local`
 - **Source Type:** `Internal`
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos7yti](https://hub.docker.com/r/ersiliaos/eos7yti)
-- **Docker Architecture:** `AMD64`
+- **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7yti.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7yti.zip)
 
 ### Resource Consumption
 - **Model Size (Mb):** `7`
 - **Environment Size (Mb):** `6533`
-- **Image Size (Mb):** `7388.4`
+- **Image Size (Mb):** `6464.21`
 
 **Computational Performance (seconds):**
-- 10 inputs: `35.74`
-- 100 inputs: `25.32`
-- 10000 inputs: `519.91`
+- 10 inputs: `54.7`
+- 100 inputs: `61.86`
+- 10000 inputs: `541.72`
 
 ### References
 - **Source Code**: [https://github.com/ersilia-os/lazy-qsar](https://github.com/ersilia-os/lazy-qsar)
