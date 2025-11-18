@@ -34,6 +34,6 @@ header = list(y_preds.keys())
 # write output in a .csv file
 with open(output_file, "w") as f:
     writer = csv.writer(f)
-    writer.writerow(["IC50_1uM".lower(), "IC50_2.5uM".lower()]) 
+    writer.writerow(["IC50_1uM".lower(), "IC50_2point5uM".lower()]) 
     for o1, o2 in zip(*(y_preds[m].tolist() for m in header)):
         writer.writerow([o1, o2])
