@@ -29,7 +29,7 @@ Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
 | ic50_1um | float | high | Probability of inhibiting Pfalciparum measured as IC50 with a cut-off of 1uM |
-| ic50_2point5um | float | high | Probability of inhibiting Pfalciparum measured as IC50 with a cut-off of 2.5uM |
+| ic50_2.5um | float | high | Probability of inhibiting Pfalciparum measured as IC50 with a cut-off of 2.5uM |
 
 
 ### Source and Deployment
