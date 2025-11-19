@@ -2,7 +2,7 @@
 
 This model predicts the antimalarial potential of small molecules in vitro. We have collected the data available from the Open Source Malaria Series 4 molecules and used two cut-offs to define activity, 1 uM and 2.5 uM. The training has been done with the LazyQSAR package and shows an AUROC >0.8 in a 5-fold cross-validation on 20% of the data held out as test. These models have been used to generate new series 4 candidates by Ersilia.
 
-This model was incorporated on 2023-08-02.Last packaged on 2025-08-26.
+This model was incorporated on 2023-08-02.Last packaged on 2025-11-19.
 
 ## Information
 ### Identifiers
@@ -42,12 +42,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `5`
 - **Environment Size (Mb):** `7610`
-- **Image Size (Mb):** `7809.07`
+- **Image Size (Mb):** `7499.4`
 
 **Computational Performance (seconds):**
-- 10 inputs: `62.37`
-- 100 inputs: `43.63`
-- 10000 inputs: `534.76`
+- 10 inputs: `61.7`
+- 100 inputs: `60.34`
+- 10000 inputs: `627.62`
 
 ### References
 - **Source Code**: [https://github.com/ersilia-os/lazy-qsar](https://github.com/ersilia-os/lazy-qsar)
