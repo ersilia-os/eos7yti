@@ -39,7 +39,7 @@
     "License": "GPL-3.0-or-later",
     "Contributor": "GemmaTuron",
     "Incorporation Date": "2023-08-02",
-    "Last Packaging Date": "2025-08-26",
+    "Last Packaging Date": "2025-11-19",
     "Release": "v1.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7yti.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos7yti",
@@ -49,10 +49,10 @@
     ],
     "Model Size": 5.0,
     "Environment Size": 7610.0,
-    "Image Size": 7809.07,
-    "Computational Performance 1": 62.37,
-    "Computational Performance 2": 40.99,
-    "Computational Performance 3": 43.63,
-    "Computational Performance 4": 153.75,
-    "Computational Performance 5": 534.76
+    "Image Size": 7499.4,
+    "Computational Performance 1": 61.7,
+    "Computational Performance 2": 41.1,
+    "Computational Performance 3": 60.34,
+    "Computational Performance 4": 149.61,
+    "Computational Performance 5": 627.62
 }
