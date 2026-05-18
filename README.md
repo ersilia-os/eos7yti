@@ -51,7 +51,7 @@ Below are the **Output Columns** of the model:
 
 ### References
 - **Source Code**: [https://github.com/ersilia-os/lazy-qsar](https://github.com/ersilia-os/lazy-qsar)
-- **Publication**: [https://pubs.acs.org/doi/10.1021/acsmedchemlett.4c00131](https://pubs.acs.org/doi/10.1021/acsmedchemlett.4c00131)
+- **Publication**: [https://doi.org/10.1021/acsmedchemlett.4c00131](https://doi.org/10.1021/acsmedchemlett.4c00131)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2024`
 - **Ersilia Contributor:** [GemmaTuron](https://github.com/GemmaTuron)
