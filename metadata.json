@@ -22,8 +22,7 @@
     "Output Consistency": "Fixed",
     "Interpretation": "Probability of killing P.falciparum in vitro (IC50 < 1uM and 2.5uM, respectively)",
     "Tag": [
-        "Malaria",
-        "P.falciparum",
+        "Antiparasitic activity",
         "IC50"
     ],
     "Biomedical Area": [
