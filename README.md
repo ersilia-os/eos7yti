@@ -1,6 +1,6 @@
 # Antimalarial activity from OSM
 
-This model predicts the antimalarial potential of small molecules in vitro. We have collected the data available from the Open Source Malaria Series 4 molecules and used two cut-offs to define activity, 1 uM and 2.5 uM. The training has been done with the LazyQSAR package and shows an AUROC >0.8 in a 5-fold cross-validation on 20% of the data held out as test. These models have been used to generate new series 4 candidates by Ersilia.
+Predicts activity against Plasmodium falciparum using data from Open Source Malaria, a project that conducts antimalarial discovery entirely in the open with all results posted as they are generated. Turon and colleagues describe how models built on such openly shared data can be redistributed freely, in contrast to the proprietary datasets behind most antimalarial predictors. The dataset is modest and centres on the series OSM has pursued, so coverage is deepest around that chemistry.
 
 This model was incorporated on 2023-08-02.Last packaged on 2025-11-19.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2023-08-02.Last packaged on 2025-11-19.
 ### Output
 - **Output Dimension:** `2`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of killing P.falciparum in vitro (IC50 < 1uM and 2.5uM, respectively)
+- **Interpretation:** Probability of Plasmodium falciparum inhibition at an IC50 cut-off of 1 uM.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
