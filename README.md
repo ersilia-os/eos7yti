@@ -1,6 +1,6 @@
 # Antimalarial activity from OSM
 
-Predicts activity against Plasmodium falciparum using data from Open Source Malaria, a project that conducts antimalarial discovery entirely in the open with all results posted as they are generated. Turon and colleagues describe how models built on such openly shared data can be redistributed freely, in contrast to the proprietary datasets behind most antimalarial predictors. The dataset is modest and centres on the series OSM has pursued, so coverage is deepest around that chemistry.
+Scores triazolopyrazine analogues for antiplasmodial potency, trained by Ersilia on the roughly 400 Open Source Malaria Series 4 compounds whose IC50 values the consortium published as they were measured. Two LazyQSAR classifiers use activity cut-offs of 1 and 2.5 micromolar, reaching AUROC above 0.8 in cross-validation. Predictors from this campaign guided the generative rounds reported by Turon and colleagues, and of eight compounds eventually synthesised four were submicromolar. Coverage is deepest around Series 4 chemistry.
 
 This model was incorporated on 2023-08-02.Last packaged on 2025-11-19.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2023-08-02.Last packaged on 2025-11-19.
 ### Output
 - **Output Dimension:** `2`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of Plasmodium falciparum inhibition at an IC50 cut-off of 1 uM.
+- **Interpretation:** Probability of Plasmodium falciparum inhibition at two IC50 cut-offs, 1 uM and 2.5 uM, reported separately.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
