@@ -2,7 +2,7 @@
 
 Scores triazolopyrazine analogues for antiplasmodial potency, trained by Ersilia on the roughly 400 Open Source Malaria Series 4 compounds whose IC50 values the consortium published as they were measured. Two LazyQSAR classifiers use activity cut-offs of 1 and 2.5 micromolar, reaching AUROC above 0.8 in cross-validation. Predictors from this campaign guided the generative rounds reported by Turon and colleagues, and of eight compounds eventually synthesised four were submicromolar. Coverage is deepest around Series 4 chemistry.
 
-This model was incorporated on 2023-08-02.Last packaged on 2025-11-19.
+This model was incorporated on 2023-08-02.Last packaged on 2026-10-28.
 
 ## Information
 ### Identifiers
@@ -42,12 +42,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `5`
 - **Environment Size (Mb):** `7552`
-- **Image Size (Mb):** `7499.4`
+- **Image Size (Mb):** `7484.74`
 
 **Computational Performance (seconds):**
-- 10 inputs: `61.7`
-- 100 inputs: `60.34`
-- 10000 inputs: `627.62`
+- 10 inputs: `62.57`
+- 100 inputs: `49.42`
+- 10000 inputs: `525.41`
 
 ### References
 - **Source Code**: [https://github.com/ersilia-os/lazy-qsar](https://github.com/ersilia-os/lazy-qsar)
