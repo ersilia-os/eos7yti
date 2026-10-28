@@ -2,35 +2,36 @@ Identifier: eos7yti
 Slug: osm-series4
 Status: Ready
 Title: Antimalarial activity from OSM
-Description: Scores triazolopyrazine analogues for antiplasmodial potency, trained
-  by Ersilia on the roughly 400 Open Source Malaria Series 4 compounds whose IC50
-  values the consortium published as they were measured. Two LazyQSAR classifiers
-  use activity cut-offs of 1 and 2.5 micromolar, reaching AUROC above 0.8 in cross-validation.
-  Predictors from this campaign guided the generative rounds reported by Turon and
-  colleagues, and of eight compounds eventually synthesised four were submicromolar.
-  Coverage is deepest around Series 4 chemistry.
+Description: Scores triazolopyrazine analogues for antiplasmodial potency, 
+  trained by Ersilia on the roughly 400 Open Source Malaria Series 4 compounds 
+  whose IC50 values the consortium published as they were measured. Two LazyQSAR
+  classifiers use activity cut-offs of 1 and 2.5 micromolar, reaching AUROC 
+  above 0.8 in cross-validation. Predictors from this campaign guided the 
+  generative rounds reported by Turon and colleagues, and of eight compounds 
+  eventually synthesised four were submicromolar. Coverage is deepest around 
+  Series 4 chemistry.
 Deployment:
-- Local
+  - Local
 Source: Local
 Source Type: Internal
 Task: Annotation
 Subtask: Activity prediction
 Input:
-- Compound
+  - Compound
 Input Dimension: 1
 Output:
-- Score
+  - Score
 Output Dimension: 2
 Output Consistency: Fixed
-Interpretation: Probability of Plasmodium falciparum inhibition at two IC50 cut-offs,
-  1 uM and 2.5 uM, reported separately.
+Interpretation: Probability of Plasmodium falciparum inhibition at two IC50 
+  cut-offs, 1 uM and 2.5 uM, reported separately.
 Tag:
-- Antiparasitic activity
-- IC50
+  - Antiparasitic activity
+  - IC50
 Biomedical Area:
-- Malaria
+  - Malaria
 Target Organism:
-- Plasmodium falciparum
+  - Plasmodium falciparum
 Publication Type: Peer reviewed
 Publication Year: 2024
 Publication: https://doi.org/10.1021/acsmedchemlett.4c00131
@@ -43,8 +44,8 @@ Release: v2.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7yti.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos7yti
 Docker Architecture:
-- AMD64
-- ARM64
+  - AMD64
+  - ARM64
 Model Size: 5.0
 Environment Size: 7610.0
 Image Size: 7499.4
