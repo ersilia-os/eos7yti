@@ -14,7 +14,7 @@ This model was incorporated on 2023-08-02.Last packaged on 2025-11-19.
 - **Subtask:** `Activity prediction`
 - **Biomedical Area:** `Malaria`
 - **Target Organism:** `Plasmodium falciparum`
-- **Tags:** `Malaria`, `P.falciparum`, `IC50`
+- **Tags:** `Antiparasitic activity`, `IC50`
 
 ### Input
 - **Input:** `Compound`
