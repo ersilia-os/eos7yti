@@ -47,10 +47,14 @@ Mandatory. Receives three arguments from Ersilia: `$1` framework dir, `$2` input
 
 ## Checkpoints and `eosvc`
 
-- `model/checkpoints/` and `model/framework/fit/` (training data included) are committed to git.
-- If any file in one of these folders is larger than 100 MB, gitignore that whole folder and persist it with [`eosvc`](https://github.com/ersilia-os/eosvc) instead: add an `access.json` (e.g. `{"checkpoints": "public"}`) and run `eosvc upload --path checkpoints` (or `--path fit`). Never `--path .`, which uploads both folders.
-- Check with `find model/checkpoints model/framework/fit -type f -size +100000000c`. No output means both folders stay in git and the repo needs no `access.json`.
-- Never keep a folder in both git and S3: when `access.json` exists, CI downloads the S3 copy over the git one.
+Full rule: [Checkpoints and storage](https://ersilia.gitbook.io/ersilia-book/ersilia-model-hub/model-contribution/model-template#checkpoints-and-storage) in the Ersilia Book.
+
+- Weights the model loads at inference live in `model/checkpoints/`, never in `model/framework/code/`. The model must not download weights at run time (Hugging Face, Google Drive, Zenodo…): download once, place them in `model/checkpoints/`, load from there.
+- `model/checkpoints/` is committed to git if every file is under 100 MiB (104,857,600 bytes, GitHub's limit). Check with `find model/checkpoints -type f -size +104857599c`; any output means the whole folder goes to `eosvc`.
+- `model/framework/fit/` goes to [`eosvc`](https://github.com/ersilia-os/eosvc) as soon as it holds training code or data, whatever its size. A model without a training step keeps the template skeleton (`README.md` and the `.gitkeep` folders) in git and does not list `fit` in `access.json` or `.gitignore`.
+- To store a folder with `eosvc`: list it in `access.json` (e.g. `{"checkpoints": "public", "fit": "public"}`), add it under a `#eosvc managed` block in `.gitignore` (`model/checkpoints/*`, `model/framework/fit/*`), and run `eosvc upload --path checkpoints` / `--path fit`. Never `--path .`, which uploads both folders. Leaving a folder out of `access.json` does not protect it: eosvc treats a missing key as public, and CI runs `eosvc download --path .` whenever `access.json` exists.
+- No Git LFS: no `.gitattributes` LFS rules, no `mock.csv`/`mock.txt`.
+- Never keep a folder in both git and S3: when `access.json` exists, CI downloads the S3 copy over the git one. If a folder was committed before moving it to eosvc, untrack it with `git rm -r --cached model/checkpoints` (or `model/framework/fit`).
 - `access.json` controls public vs. private — public by default. Only change on explicit user request.
 
 ## Versioning
