@@ -1,39 +1,46 @@
-# imports
 import os
-import csv
 import sys
-from lazyqsar.qsar import LazyBinaryQSAR
 
-# parse arguments
-input_file = sys.argv[1]
-output_file = sys.argv[2]
+import numpy as np
+from ersilia_pack_utils.core import read_smiles, write_out
+from lazyqsar.qsar import LazyClassifierQSAR
 
-# current file directory
 root = os.path.dirname(os.path.abspath(__file__))
+checkpoints = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
 
-MODELPATH = os.path.join(root, "..", "..", "checkpoints")
+# output column -> checkpoint folder, in the order of run_columns.csv
+MODELS = {
+    "ic50_1um_rank": "bin1",
+    "ic50_2point5um_rank": "bin25",
+}
 
-models = ["bin1", "bin25"]
 
-# read SMILES from .csv file, assuming one column with header
-with open(input_file, "r") as f:
-    reader = csv.reader(f)
-    next(reader)  # skip header
-    smiles_list = [r[0] for r in reader]
+# Load every checkpoint once. When served, Ersilia calls this a single time and keeps
+# the loaded models (descriptors and ONNX graphs) in memory between batches.
+def load_tool():
+    return {
+        column: LazyClassifierQSAR.load(os.path.join(checkpoints, folder))
+        for column, folder in MODELS.items()
+    }
 
-# run model
-y_preds = {}
-for m in models:
-    model_folder = os.path.join(MODELPATH, f"{m}")
-    model = LazyBinaryQSAR.load(model_folder)
-    y_pred = model.predict_proba(smiles_list=smiles_list)[:, 1]
-    y_preds[m]=y_pred
 
-header = list(y_preds.keys())
+# Predict one batch. Nothing is loaded here and nothing is kept between batches.
+def run_tool(models, input_file, output_file):
+    _, smiles_list = read_smiles(input_file)
+    columns = []
+    for model in models.values():
+        columns.append(model.predict_rank(smiles_list=smiles_list)[:, 1])
+        # The loaded model caches every result it computes; clear it so a long-lived
+        # served process does not grow with each batch.
+        model._ensemble_cache.clear()
+    outputs = np.column_stack(columns)
+    assert outputs.shape[0] == len(smiles_list)
+    if output_file.endswith(".csv"):
+        # Unparseable SMILES come back as NaN; in a CSV Ersilia reports them as empty
+        # cells. The binary format takes the array as is.
+        outputs = [["" if v != v else v for v in row] for row in outputs.tolist()]
+    write_out(outputs, list(models.keys()), output_file, np.float32)
 
-# write output in a .csv file
-with open(output_file, "w") as f:
-    writer = csv.writer(f)
-    writer.writerow(["IC50_1uM".lower(), "IC50_2point5uM".lower()]) 
-    for o1, o2 in zip(*(y_preds[m].tolist() for m in header)):
-        writer.writerow([o1, o2])
+
+if __name__ == "__main__":
+    run_tool(load_tool(), sys.argv[1], sys.argv[2])
