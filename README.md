@@ -1,6 +1,6 @@
 # Antimalarial activity from OSM
 
-Scores triazolopyrazine analogues for antiplasmodial potency, trained by Ersilia on the roughly 400 Open Source Malaria Series 4 compounds whose IC50 values the consortium published as they were measured. Two LazyQSAR classifiers use activity cut-offs of 1 and 2.5 micromolar, reaching AUROC above 0.8 in cross-validation. Predictors from this campaign guided the generative rounds reported by Turon and colleagues, and of eight compounds eventually synthesised four were submicromolar. Coverage is deepest around Series 4 chemistry.
+Scores triazolopyrazine analogues for antiplasmodial potency. Ersilia trained two LazyQSAR classifiers on 413 Open Source Malaria Series 4 compounds, with IC50 cut-offs of 1 and 2.5 micromolar (123 and 175 actives), reaching AUROC 0.89 and 0.87 in five-fold out-of-fold validation. Outputs are ranks against 50,000 drug-like molecules. Predictors from this campaign guided generative rounds in which four of eight synthesised compounds were submicromolar. Coverage is deepest around Series 4 chemistry.
 
 This model was incorporated on 2023-08-02.
 Last packaged on 2026-10-28.
@@ -24,13 +24,13 @@ Last packaged on 2026-10-28.
 ### Output
 - **Output Dimension:** `2`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of Plasmodium falciparum inhibition at two IC50 cut-offs, 1 uM and 2.5 uM, reported separately.
+- **Interpretation:** Rank of predicted Plasmodium falciparum inhibition at IC50 cut-offs of 1 uM and 2.5 uM, against 50,000 drug-like molecules; 0.65 is better than 99% of them.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
-| ic50_1um | float | high | Probability of inhibiting Pfalciparum measured as IC50 with a cut-off of 1uM |
-| ic50_2point5um | float | high | Probability of inhibiting Pfalciparum measured as IC50 with a cut-off of 2.5uM |
+| ic50_1um_rank | float | high | Rank score of the compound's predicted inhibition of Plasmodium falciparum at an IC50 cut-off of 1 uM, calibrated against a reference library of 50K drug-like molecules so that 0.65 is better than 99% of them. Recommended threshold: 0.65. |
+| ic50_2point5um_rank | float | high | Rank score of the compound's predicted inhibition of Plasmodium falciparum at an IC50 cut-off of 2.5 uM, calibrated against a reference library of 50K drug-like molecules so that 0.65 is better than 99% of them. Recommended threshold: 0.65. |
 
 
 ### Source and Deployment
